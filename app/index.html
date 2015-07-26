@@ -13,48 +13,14 @@
     <link rel="stylesheet" href="assets/app.css"/>
   </head>
 
-  <body ng-app="starterApp" layout="row" ng-controller="UserController as ul">
-
-  <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
-                md-component-id="left"
-                md-is-locked-open="$mdMedia('gt-sm')">
-
-    <md-toolbar class="md-whiteframe-z1">
-      <h1>Users</h1>
-    </md-toolbar>
-
-    <md-list>
-      <md-list-item ng-repeat="it in ul.users">
-          <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
-            <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
-            {{it.name}}
-          </md-button>
-      </md-list-item>
-    </md-list>
-
-  </md-sidenav>
+  <body ng-app="myApp" layout="row" ng-controller="PersonController">
 
 
   <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
 
     <md-toolbar layout="row" class="md-whiteframe-z1">
-      <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
-        <md-icon md-svg-icon="menu" ></md-icon>
-      </md-button>
-      <h1>Angular Material - Starter App</h1>
+      <h1>{{name}}</h1>
     </md-toolbar>
-
-    <md-content flex id="content">
-        <md-icon md-svg-icon="{{ul.selected.avatar}}" class="avatar"></md-icon>
-        <h2>{{ul.selected.name}}</h2>
-        <p>{{ul.selected.content}}</p>
-
-        <md-button class="contact" md-no-ink ng-click="ul.showContactOptions($event)" aria-label="Contact User">
-          <md-tooltip>Contact {{ ul.selected.name }}</md-tooltip>
-          <md-icon md-svg-icon="share"></md-icon>
-        </md-button>
-      </md-content>
-
   </div>
 
     <script src="./bower_components/angular/angular.js"></script>
@@ -62,14 +28,9 @@
     <script src="./bower_components/angular-aria/angular-aria.js"></script>
     <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
 
-    <script src="./src/users/Users.js"></script>
-    <script src="./src/users/UserController.js"></script>
-    <script src="./src/users/UserService.js"></script>
-
-    <script type="text/javascript">
-
+      <script type="text/javascript">
           angular
-              .module('starterApp', ['ngMaterial', 'users'])
+              .module('myApp', ['ngMaterial'])
               .config(function($mdThemingProvider, $mdIconProvider){
 
                   $mdIconProvider
@@ -82,12 +43,15 @@
                       .icon("phone"      , "./assets/svg/phone.svg"       , 512);
 
                       $mdThemingProvider.theme('default')
-                          .primaryPalette('brown')
+                          .primaryPalette('green')
                           .accentPalette('red');
 
               });
 
     </script>
+
+    <script type="text/javascript" src="./src/person/PersonController.js"></script>
+
 
   </body>
 </html>
