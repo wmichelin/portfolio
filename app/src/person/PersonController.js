@@ -1,12 +1,13 @@
 (function(){
-  angular.module('myApp')
-    .controller('PersonController',
-      ['$scope', PersonController
-    ]);
+  var myApp = angular.module('myApp');
+  myApp.controller('PersonController', ['$scope', 'PersonService', PersonController]);
 
-    function PersonController($scope){
-
-      $scope.name = "Walter Michelin";
+    function PersonController($scope, personService){
+      
+      personService.loadPerson()
+        .then(function(person){
+          $scope.name = person.name;
+      });
 
     }
 
