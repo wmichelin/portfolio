@@ -24,21 +24,23 @@
         </md-button>
     </md-toolbar>
 </md-sidenav>
-<md-content flex layout="column">
-    <md-toolbar class="md-theme-indigo" hide-gt-md>
+<md-content class="main-content" flex layout="column">
+    <md-toolbar hide-gt-md>
         <div class="md-toolbar-tools">
             <md-button ng-click="openSideBar()" class="md-icon-button">
                 <md-icon md-svg-icon="assets/svg/menu.svg"></md-icon>
             </md-button>
             <h2>
-                <span>{{name}}</span>
+                <span>{{title}}</span>
             </h2>
         </div>
     </md-toolbar>
 
-    <md-content>
-        <!--content testtesttest-->
-        <div class="content-body" ui-view></div>
+    <md-content class="transparent">
+        <div class="content-wrapper" ng-class="{small: lessThanMedium}" >
+            <!--content -->
+            <div ui-view></div>
+        </div>
     </md-content>
 
 </md-content>
@@ -64,7 +66,7 @@
 </script>
 
 <script type="text/javascript" src="./src/app/AppController.js"></script>
-<script type="text/javascript" src="src/home/HomeController.js"></script>
+<script type="text/javascript" src="./src/home/HomeController.js"></script>
 <script type="text/javascript" src="./src/DataService.js"></script>
 <script type="text/javascript" src="./src/routeProvider.js"></script>
 
