@@ -1,59 +1,73 @@
 <!DOCTYPE html>
-<html lang="en" >
-  <head>
-    <title>Angular Material - Starter App</title>
+<html lang="en">
+<head>
+    <title>Walter Michelin</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
 
-    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <link href='http://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
     <link rel="stylesheet" href="assets/app.css"/>
-  </head>
+</head>
 
-  <body ng-app="myApp" layout="row" ng-controller="PersonController">
-
-
-  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
-
-    <md-toolbar layout="row" class="md-whiteframe-z1">
-      <h1>{{name}}</h1>
+<body ng-app="myApp" layout="row" ng-controller="AppController" class="ng-cloak">
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">
+            <span>{{title}}</span>
+        </h1>
+        <md-button ng-click="closeSideBar()" class="md-primary" hide-gt-md>
+            Close Sidenav Left
+        </md-button>
     </md-toolbar>
-  </div>
+</md-sidenav>
+<md-content flex layout="column">
+    <md-toolbar class="md-theme-indigo" hide-gt-md>
+        <div class="md-toolbar-tools">
+            <md-button ng-click="openSideBar()" class="md-icon-button">
+                <md-icon md-svg-icon="assets/svg/menu.svg"></md-icon>
+            </md-button>
+            <h2>
+                <span>{{name}}</span>
+            </h2>
+        </div>
+    </md-toolbar>
 
-    <script src="./bower_components/angular/angular.js"></script>
-    <script src="./bower_components/angular-animate/angular-animate.js"></script>
-    <script src="./bower_components/angular-aria/angular-aria.js"></script>
-    <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
+    <md-content>
+        <!--content testtesttest-->
+        <div class="content-body" ui-view></div>
+    </md-content>
 
-      <script type="text/javascript">
-          angular
-              .module('myApp', ['ngMaterial'])
-              .config(function($mdThemingProvider, $mdIconProvider){
-
-                  $mdIconProvider
-                      .defaultIconSet("./assets/svg/avatars.svg", 128)
-                      .icon("menu"       , "./assets/svg/menu.svg"        , 24)
-                      .icon("share"      , "./assets/svg/share.svg"       , 24)
-                      .icon("google_plus", "./assets/svg/google_plus.svg" , 512)
-                      .icon("hangouts"   , "./assets/svg/hangouts.svg"    , 512)
-                      .icon("twitter"    , "./assets/svg/twitter.svg"     , 512)
-                      .icon("phone"      , "./assets/svg/phone.svg"       , 512);
-
-                      $mdThemingProvider.theme('default')
-                          .primaryPalette('green')
-                          .accentPalette('red');
-
-              });
-
-    </script>
-
-    <script type="text/javascript" src="./data/data.js"></script>
-    <script type="text/javascript" src="./src/person/PersonController.js"></script>
-    <script type="text/javascript" src="./src/person/PersonService.js"></script>
+</md-content>
 
 
-  </body>
+<script type="text/javascript" src="./bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script type="text/javascript" src="./bower_components/angular-animate/angular-animate.js"></script>
+<script type="text/javascript" src="./bower_components/angular-aria/angular-aria.js"></script>
+<script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
+
+<script type="text/javascript">
+    angular
+            .module('myApp', ['ngMaterial', 'ui.router'])
+            .config(function ($mdThemingProvider) {
+
+                $mdThemingProvider.theme('default')
+                        .primaryPalette('blue-grey')
+                        .accentPalette('blue');
+
+            });
+
+</script>
+
+<script type="text/javascript" src="./src/app/AppController.js"></script>
+<script type="text/javascript" src="src/home/HomeController.js"></script>
+<script type="text/javascript" src="./src/DataService.js"></script>
+<script type="text/javascript" src="./src/routeProvider.js"></script>
+
+
+</body>
 </html>
