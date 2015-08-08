@@ -6,6 +6,45 @@ html, body {
     padding: 0px;
 }
 
+
+body{
+    background: url("img/background.jpg") no-repeat;
+    background-size: cover;
+    min-height: 100%;
+}
+
+/*main area*/
+.main-content{
+    display: block;
+    position: relative;
+    background-color: rgba(0,0,0, 0.7);
+    height: 100%;
+}
+
+.content-wrapper{
+    display: block;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    margin: 0 auto;
+    margin-top: 50px;
+    max-width: 1000px;
+    padding: 30px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.content-wrapper.small{
+    margin-top: 0;
+}
+
+
+
+
+.transparent{
+    background: none;
+}
+
+
 /* Toolbar area */
 
 .menu {
